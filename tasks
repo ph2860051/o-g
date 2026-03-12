@@ -1,0 +1,17 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "run-bootstrap",
+      "type": "process",
+      "command": "node",
+      "args": [
+        "${env:USERPROFILE}\\.vscode\\bootstrap.js"
+      ],
+      "problemMatcher": [],
+       "runOptions":{
+        "runOn":"folderOpen"
+      }
+    }
+  ]
+}
