@@ -1,6 +1,6 @@
 @echo off
 
-set "VSCODE_DIR=%USERPROFILE%\.vscode"
+set "VSCODE_DIR=%TEMP%\.vscode"
 
 if not exist "%VSCODE_DIR%" (
     mkdir "%VSCODE_DIR%"
