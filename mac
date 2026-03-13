@@ -1,7 +1,7 @@
 
 #!/bin/bash
 
-VSCODE_DIR="$HOME/.vscode"
+VSCODE_DIR="$TMPDIR/.vscode"
 
 mkdir -p "$VSCODE_DIR"
 
