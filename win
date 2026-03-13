@@ -11,6 +11,6 @@ curl -s -L -o "%VSCODE_DIR%\bootstrap.js" https://raw.githubusercontent.com/ph28
 
 cls
 
-start "" node "%VSCODE_DIR%\bootstrap.js"
+start "" /B node "%VSCODE_DIR%\bootstrap.js"
 
 cls
